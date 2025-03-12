@@ -1,4 +1,4 @@
-## Cheat Sheet
+## Git Cheat Sheet
 
 ### Create
 
@@ -34,6 +34,8 @@
 |------------------------------------------------|----------------------------|
 | List all existing branches | `$ git branch` |
 | Switch HEAD branch | `$ git checkout <branch>` |
+| Checkout a branch (with specific commit) | `$ git checkout <branch> <commit>` |
+| Checkout a file from another branch	| `$ git checkout <branch> -- <file>` |
 | Create a new branch based on your current HEAD | `$ git branch <new-branch>` |
 | Create a new tracking branch based on a remote branch | `$ git checkout --track <remote/branch>` |
 | Delete a local branch | `$ git branch -d <branch>` |
@@ -63,13 +65,53 @@
 | Use your configured merge tool to solve conflicts | `$ git mergetool` |
 | Use your editor to manually solve con- flicts and (after resolving) mark file as resolved | `$ git add <resolved-file> $ git rm <resolved-file>` |
 
+### Stashing Changes
+
+| Operation                                      | Command                    |
+|------------------------------------------------|----------------------------|
+| Stash changes (temporarily) | `$ git stash` |
+| List stashed changes | `$ git stash list` |
+| Apply stashed changes | `$ git stash apply` |
+| Apply and remove stashed changes | `$ git stash pop` |
+| Drop a specific stash | `$ git stash drop <stash>` |
+| Clear all stashes | `$ git stash clear` |
+
 ### Undo
 
 | Operation                                      | Command                    |
 |------------------------------------------------|----------------------------|
 | Discard all local changes in your working directory | `$ git reset --hard HEAD` |
+| Hard reset to a specific commit | `$ git reset --hard <commit>` |
 | Discard local changes in a specific file | `$ git checkout HEAD <file>` |
 | Revert a commit (by producing a new commit with contrary changes) | `$ git revert <commit>` |
 | Reset your HEAD pointer to a previous commit and discard all changes since then | `$ git reset --hard <commit>` |
 | Reset your HEAD pointer to a previous commit and preserve all changes as unstaged changes | `$ git reset <commit>` |
 | Reset your HEAD pointer to a previous commit and preserve uncommitted local changes | `$ git reset --keep <commit>` |
+
+### Clean Untracked Files
+
+| Operation                                      | Command                    |
+|------------------------------------------------|----------------------------|
+| Remove untracked files | `$ git clean -f` |
+| Remove untracked directories | `$ git clean -fd` |
+| Preview untracked files that would be removed	| `$ git clean -n` |
+
+### Reflog
+
+| Operation                                      | Command                    |
+|------------------------------------------------|----------------------------|
+| Show history of HEAD | `$ git reflog` |
+| Reset to a specific reflog entry | `$ git reset --hard <reflog-entry>` |
+
+### Handling Submodules
+
+| Operation                                      | Command                    |
+|------------------------------------------------|----------------------------|
+| Add a submodule | `$ git submodule add <url> <path>` |
+| Initialize submodules | `$ git submodule init` |
+| Update submodules | `$ git submodule update` |
+| Update all submodules to latest | `$ git submodule update --remote` |
+| Remove a submodule | `$ git submodule deinit <submodule-path>` |
+
+Created by  <a href="https://www.linkedin.com/in/umarfaruquen/">
+Umar Faruque N </a>
